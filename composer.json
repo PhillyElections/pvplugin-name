@@ -1,8 +1,0 @@
-{
-  "name": "mattyhead/plugin-name",
-  "homepage": "https://github.com/mattyhead/plugin-name",
-  "description": "A plugin-name for wp",
-  "license": "GPL-2.0+",
-
-  "type": "wordpress-plugin",
-}
