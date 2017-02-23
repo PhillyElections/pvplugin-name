@@ -98,10 +98,10 @@ if ( !class_exists( 'pluginabbr_actions' ) ) {
 
 
 if ( pluginabbr_requirements_met() ) {
+
     register_activation_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_activate() );
     register_deactivation_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_deactivate() );
     register_uninstall_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_uninstall() );
-
 
     if ( is_admin() ) {
         // we are in admin mode
