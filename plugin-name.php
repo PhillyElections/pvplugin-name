@@ -44,7 +44,7 @@ define( 'PVPLUGINABBR_REQUIRED_PHP_VERSION', '5.3' );
 function pvpluginabbr_requirements_met() {
     global $wp_version;
     
-    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );        // to get is_pvplugin_active() early
+    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );        // to get is_plugin_active() early
 
     if ( version_compare( PHP_VERSION, PVPLUGINABBR_REQUIRED_PHP_VERSION, '<' ) ) {
         return false;
@@ -54,7 +54,7 @@ function pvpluginabbr_requirements_met() {
         return false;
     }
 
-    if ( ! is_pvplugin_active( PVPLUGINABBR__FILE ) ) {
+    if ( ! is_plugin_active( PVPLUGINABBR__FILE ) ) {
         return false;
     }
 
