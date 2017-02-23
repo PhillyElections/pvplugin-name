@@ -1,7 +1,7 @@
 <?php
 /**
  * 
- * Plugin Name: Plugin Name
+ * Plugin Name: PV Plugin Name
  * Description: Allow for Machine Inspector online signups.
  * Plugin URI: https://github.com/mattyhead/pvplugin-name
  * Author: Matthew Murphy
@@ -27,7 +27,7 @@
  * 
  **/
 
-define( 'PVPLUGINABBR__NAME', 'Plugin Name' );
+define( 'PVPLUGINABBR__NAME', 'PV Plugin Name' );
 define( 'PVPLUGINABBR__TEXTDOMAIN', 'pvplugin-name' );
 define( 'PVPLUGINABBR__TEXTDOMAINPATH', '/languages/' );
 define( 'PVPLUGINABBR__FILE', __FILE__ );
