@@ -89,7 +89,7 @@ if ( !class_exists( 'pluginabbr_actions' ) ) {
          * @return NULL
          */
         function pluginabbr_uninstall() {
-            echo "uninstall"
+            echo "uninstall";
             // clear the permalinks after the post type has been registered
             flush_rewrite_rules();
         }
