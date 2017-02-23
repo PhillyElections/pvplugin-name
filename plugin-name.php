@@ -3,11 +3,11 @@
  * 
  * Plugin Name: Plugin Name
  * Description: Allow for Machine Inspector online signups.
- * Plugin URI: https://github.com/mattyhead/plugin-name
+ * Plugin URI: https://github.com/mattyhead/pvplugin-name
  * Author: Matthew Murphy
  * Author URI: https://github.com/mattyhead
  * Version: 0.0.1
- * Text Domain: plugin-name
+ * Text Domain: pvplugin-name
  * Domain Path: /languages/
  * License: GPLv2
  * 
@@ -27,68 +27,68 @@
  * 
  **/
 
-define( 'PLUGINABBR__NAME', 'Plugin Name' );
-define( 'PLUGINABBR__TEXTDOMAIN', 'plugin-name' );
-define( 'PLUGINABBR__TEXTDOMAINPATH', '/languages/' );
-define( 'PLUGINABBR__FILE', __FILE__ );
-define( 'PLUGINABBR__DIR', dirname( __FILE__ ) );
-define( 'PLUGINABBR__VERSION', '0.0.1' );
-define( 'PLUGINABBR_REQUIRED_WP_VERSION', '4.0' );
-define( 'PLUGINABBR_REQUIRED_PHP_VERSION', '5.3' );
+define( 'PVPLUGINABBR__NAME', 'Plugin Name' );
+define( 'PVPLUGINABBR__TEXTDOMAIN', 'pvplugin-name' );
+define( 'PVPLUGINABBR__TEXTDOMAINPATH', '/languages/' );
+define( 'PVPLUGINABBR__FILE', __FILE__ );
+define( 'PVPLUGINABBR__DIR', dirname( __FILE__ ) );
+define( 'PVPLUGINABBR__VERSION', '0.0.1' );
+define( 'PVPLUGINABBR_REQUIRED_WP_VERSION', '4.0' );
+define( 'PVPLUGINABBR_REQUIRED_PHP_VERSION', '5.3' );
 
 /**
  * Checks if the system requirements are met
  *
  * @return bool True if system requirements are met, false if not
  */
-function pluginabbr_requirements_met() {
+function pvpluginabbr_requirements_met() {
     global $wp_version;
     
-    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );        // to get is_plugin_active() early
+    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );        // to get is_pvplugin_active() early
 
-    if ( version_compare( PHP_VERSION, PLUGINABBR_REQUIRED_PHP_VERSION, '<' ) ) {
+    if ( version_compare( PHP_VERSION, PVPLUGINABBR_REQUIRED_PHP_VERSION, '<' ) ) {
         return false;
     }
 
-    if ( version_compare( $wp_version, PLUGINABBR_REQUIRED_WP_VERSION, '<' ) ) {
+    if ( version_compare( $wp_version, PVPLUGINABBR_REQUIRED_WP_VERSION, '<' ) ) {
         return false;
     }
 
-    if ( ! is_plugin_active( PLUGINABBR__FILE ) ) {
+    if ( ! is_pvplugin_active( PVPLUGINABBR__FILE ) ) {
         return false;
     }
 
     return true;
 }
 
-if ( !class_exists( 'pluginabbr_actions' ) ) {
-    class pluginabbr_actions {
+if ( !class_exists( 'pvpluginabbr_actions' ) ) {
+    class pvpluginabbr_actions {
         // define standard hooks
         /**
-         * activation hook for plugin-name
+         * activation hook for pvplugin-name
          * @return NULL
          */
-        function pluginabbr_activate() {
+        function pvpluginabbr_activate() {
             echo "activated";
             // clear the permalinks after the post type has been registered
             flush_rewrite_rules();
         }
 
         /**
-         * deactivation hook for plugin-name
+         * deactivation hook for pvplugin-name
          * @return NULL
          */
-        function pluginabbr_deactivate() {
+        function pvpluginabbr_deactivate() {
             echo "deactivated";
             // clear the permalinks after the post type has been registered
             flush_rewrite_rules();
         }
 
         /**
-         * uninstall hook for plugin-name
+         * uninstall hook for pvplugin-name
          * @return NULL
          */
-        function pluginabbr_uninstall() {
+        function pvpluginabbr_uninstall() {
             echo "uninstall";
             // clear the permalinks after the post type has been registered
             flush_rewrite_rules();
@@ -99,11 +99,11 @@ if ( !class_exists( 'pluginabbr_actions' ) ) {
 }
 
 
-if ( pluginabbr_requirements_met() & class_exists( 'pluginabbr_actions' ) ) {
+if ( pvpluginabbr_requirements_met() & class_exists( 'pvpluginabbr_actions' ) ) {
 
-    register_activation_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_activate() );
-    register_deactivation_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_deactivate() );
-    register_uninstall_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_uninstall() );
+    register_activation_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_activate() );
+    register_deactivation_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_deactivate() );
+    register_uninstall_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_uninstall() );
 
     if ( is_admin() ) {
         // we are in admin mode
