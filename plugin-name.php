@@ -33,6 +33,8 @@ define( 'PLUGINABBR__TEXTDOMAINPATH', '/languages/' );
 define( 'PLUGINABBR__FILE', __FILE__ );
 define( 'PLUGINABBR__DIR', dirname( __FILE__ ) );
 define( 'PLUGINABBR__VERSION', '0.0.1' );
+define( 'PLUGINABBR_REQUIRED_WP_VERSION', '4.0' );
+define( 'PLUGINABBR_REQUIRED_PHP_VERSION', '5.3' );
 
 /**
  * Checks if the system requirements are met
