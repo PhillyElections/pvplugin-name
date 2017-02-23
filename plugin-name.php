@@ -99,7 +99,7 @@ if ( !class_exists( 'pluginabbr_actions' ) ) {
 }
 
 
-if ( pluginabbr_requirements_met() ) {
+if ( pluginabbr_requirements_met() & class_exists( 'pluginabbr_actions' ) ) {
 
     register_activation_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_activate() );
     register_deactivation_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_deactivate() );
