@@ -59,7 +59,7 @@ function pluginabbr_requirements_met() {
     return true;
 }
 
-if ( !class_exists( 'pluginabbr_class' ) ) {
+if ( !class_exists( 'pluginabbr_actions' ) ) {
     class pluginabbr_actions {
         // define standard hooks
         /**
@@ -67,7 +67,7 @@ if ( !class_exists( 'pluginabbr_class' ) ) {
          * @return NULL
          */
         function pluginabbr_activate() {
-
+            echo "activated";
             // clear the permalinks after the post type has been registered
             flush_rewrite_rules();
         }
@@ -77,7 +77,7 @@ if ( !class_exists( 'pluginabbr_class' ) ) {
          * @return NULL
          */
         function pluginabbr_deactivate() {
-
+            echo "deactivated";
             // clear the permalinks after the post type has been registered
             flush_rewrite_rules();
         }
@@ -87,18 +87,22 @@ if ( !class_exists( 'pluginabbr_class' ) ) {
          * @return NULL
          */
         function pluginabbr_uninstall() {
-
+            echo "uninstall"
+            // clear the permalinks after the post type has been registered
+            flush_rewrite_rules();
         }
     }
     
     // register standard hooks
-    register_activation_hook( PLUGINABBR__FILE, 'pluginabbr_activate' );
-    register_deactivation_hook( PLUGINABBR__FILE, 'pluginabbr_deactivate' );
-    register_uninstall_hook( PLUGINABBR__FILE, 'pluginabbr_uninstall' );
 }
 
 
-if ( plugin_requirements_met() ) {
+if ( pluginabbr_requirements_met() ) {
+    register_activation_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_activate() );
+    register_deactivation_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_deactivate() );
+    register_uninstall_hook( PLUGINABBR__FILE, pluginabbr_actions::pluginabbr_uninstall() );
+
+
     if ( is_admin() ) {
         // we are in admin mode
         // load our admin interface
