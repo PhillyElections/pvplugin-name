@@ -1,5 +1,5 @@
 <?php
-/**
+/**7
  * 
  * Plugin Name: PV Plugin Name
  * Description: Do [something] for [someone] in [location]
@@ -26,87 +26,39 @@
  * https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html.
  * 
  **/
+if ( ! defined( 'WPINC' ) ) {
+    exit;
+}
 
-define( 'PVPLUGINABBR__NAME', 'PV Plugin Name' );
-define( 'PVPLUGINABBR__TEXTDOMAIN', 'pvplugin-name' );
-define( 'PVPLUGINABBR__TEXTDOMAINPATH', '/languages/' );
-define( 'PVPLUGINABBR__FILE', __FILE__ );
-define( 'PVPLUGINABBR__DIR', dirname( PVPLUGINABBR__FILE ) );
-define( 'PVPLUGINABBR__VERSION', '0.0.1' );
+define( 'PVPLUGINABBR_NAME', 'PV Plugin Name' );
+define( 'PVPLUGINABBR_TEXTDOMAIN', 'pvplugin-name' );
+define( 'PVPLUGINABBR_TEXTDOMAINPATH', '/languages/' );
+define( 'PVPLUGINABBR_FILE', __FILE__ );
+define( 'PVPLUGINABBR_DIR', dirname( PVPLUGINABBR_FILE ) );
+define( 'PVPLUGINABBR_ADMINDIR', PVPLUGINABBR_DIR . DS . 'admin' );
+define( 'PVPLUGINABBR_PPUBLICDIR', PVPLUGINABBR_DIR . DS . 'public' );
+define( 'PVPLUGINABBR_VERSION', '0.0.1' );
 define( 'PVPLUGINABBR_REQUIRED_WP_VERSION', '4.0' );
 define( 'PVPLUGINABBR_REQUIRED_PHP_VERSION', '5.3' );
 
-/**
- * Checks if the system requirements are met
- *
- * @return bool True if system requirements are met, false if not
- */
-function pvpluginabbr_requirements_met() {
-    global $wp_version;
-    
-    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );        // to get is_plugin_active() early
+require_once( ABSPATH . '/wp-admin/includes/plugin.php' );        // to get is_plugin_active() early
 
-    if ( version_compare( PHP_VERSION, PVPLUGINABBR_REQUIRED_PHP_VERSION, '<' ) ) {
-        return false;
-    }
+// check requirements
+if ( version_compare( PHP_VERSION, PVPLUGINABBR_REQUIRED_PHP_VERSION, '<' ) 
+  || version_compare( $wp_version, PVPLUGINABBR_REQUIRED_WP_VERSION, '<' ) 
+  || !is_plugin_active( PVPLUGINABBR_FILE ) ) {
+    // do nothing if requirements are not met
 
-    if ( version_compare( $wp_version, PVPLUGINABBR_REQUIRED_WP_VERSION, '<' ) ) {
-        return false;
-    }
+} else {
+    // register core events
+    require_once( PVPLUGINABBR_DIR . DS . 'actions.php');
 
-    if ( ! is_plugin_active( PVPLUGINABBR__FILE ) ) {
-        return false;
-    }
-
-    return true;
-}
-
-if ( pvpluginabbr_requirements_met() ) {
-
-    if ( !class_exists( 'pvpluginabbr_actions' ) ) {
-        class pvpluginabbr_actions {
-            // define standard hooks
-            /**
-             * activation hook for pvplugin-name
-             * @return NULL
-             */
-            function pvpluginabbr_activate() {
-
-                // clear the permalinks after the post type has been registered
-                flush_rewrite_rules();
-            }
-
-            /**
-             * deactivation hook for pvplugin-name
-             * @return NULL
-             */
-            function pvpluginabbr_deactivate() {
-
-                // clear the permalinks after the post type has been registered
-                flush_rewrite_rules();
-            }
-
-            /**
-             * uninstall hook for pvplugin-name
-             * @return NULL
-             */
-            function pvpluginabbr_uninstall() {
-
-            }
-        }
-        
-        // register standard hooks
-    }
-
-    register_activation_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_activate() );
-    register_deactivation_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_deactivate() );
-    register_uninstall_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_uninstall() );
-
+    // select which interface to load
     if ( is_admin() ) {
-        // load our admin interface
-        require_once( PVPLUGINABBR__DIR . '/admin/main.php' );
+        // load backend
+        require_once( PVPLUGINABBR_DIR . DS . 'admin'. DS . 'main.php' );
     } else {
-        // load our frontend interface
-        require_once( PVPLUGINABBR__DIR . '/site/main.php' );
+        // load frontend
+        require_once( PVPLUGINABBR_DIR . DS . 'public'. DS . 'main.php' );
     }
 }
