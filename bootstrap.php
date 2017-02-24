@@ -61,52 +61,52 @@ function pvpluginabbr_requirements_met() {
     return true;
 }
 
-if ( !class_exists( 'pvpluginabbr_actions' ) ) {
-    class pvpluginabbr_actions {
-        // define standard hooks
-        /**
-         * activation hook for pvplugin-name
-         * @return NULL
-         */
-        function pvpluginabbr_activate() {
+if ( pvpluginabbr_requirements_met() ) {
 
-            // clear the permalinks after the post type has been registered
-            flush_rewrite_rules();
+    if ( !class_exists( 'pvpluginabbr_actions' ) ) {
+        class pvpluginabbr_actions {
+            // define standard hooks
+            /**
+             * activation hook for pvplugin-name
+             * @return NULL
+             */
+            function pvpluginabbr_activate() {
+
+                // clear the permalinks after the post type has been registered
+                flush_rewrite_rules();
+            }
+
+            /**
+             * deactivation hook for pvplugin-name
+             * @return NULL
+             */
+            function pvpluginabbr_deactivate() {
+
+                // clear the permalinks after the post type has been registered
+                flush_rewrite_rules();
+            }
+
+            /**
+             * uninstall hook for pvplugin-name
+             * @return NULL
+             */
+            function pvpluginabbr_uninstall() {
+
+            }
         }
-
-        /**
-         * deactivation hook for pvplugin-name
-         * @return NULL
-         */
-        function pvpluginabbr_deactivate() {
-
-            // clear the permalinks after the post type has been registered
-            flush_rewrite_rules();
-        }
-
-        /**
-         * uninstall hook for pvplugin-name
-         * @return NULL
-         */
-        function pvpluginabbr_uninstall() {
-
-        }
+        
+        // register standard hooks
     }
-    
-    // register standard hooks
-}
-
-if ( pvpluginabbr_requirements_met() & class_exists( 'pvpluginabbr_actions' ) ) {
 
     register_activation_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_activate() );
     register_deactivation_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_deactivate() );
     register_uninstall_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_uninstall() );
 
     if ( is_admin() ) {
-        // we are in admin mode
         // load our admin interface
+        require_once( PVPLUGINABBR__DIR . '/admin/main.php' );
     } else {
-        // we are in the frontend
         // load our frontend interface
+        require_once( PVPLUGINABBR__DIR . '/site/main.php' );
     }
 }
