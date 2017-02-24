@@ -4,4 +4,4 @@ if ( ! defined( 'WPINC' ) ) {
     exit;
 }
 
-require_once( dirname( __FILE__ ) . 'actions.php' );
+require_once( dirname( __FILE__ ) . DS . 'actions.php' );
