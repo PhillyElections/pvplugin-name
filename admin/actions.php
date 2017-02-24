@@ -6,6 +6,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 if ( !class_exists('pluginabbr_admin_actions') ) {
     static public class pluginabbr_admin_actions {
+
         static public function load_styles( ) {
             wp_enqueue_style(
                 'pvpluginabbr_admin',
@@ -26,5 +27,7 @@ if ( !class_exists('pluginabbr_admin_actions') ) {
         }
     }
 }
+
+// load default client includes
 add_action( 'init', pluginabbr_admin_actions::load_styles( ) );
 add_action( 'init', pluginabbr_admin_actions::load_scripts( ) );
