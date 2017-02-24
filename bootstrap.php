@@ -2,7 +2,7 @@
 /**
  * 
  * Plugin Name: PV Plugin Name
- * Description: Allow for Machine Inspector online signups.
+ * Description: Do [something] for [someone] in [location]
  * Plugin URI: https://github.com/mattyhead/pvplugin-name
  * Author: Matthew Murphy
  * Author URI: https://github.com/mattyhead
@@ -31,7 +31,7 @@ define( 'PVPLUGINABBR__NAME', 'PV Plugin Name' );
 define( 'PVPLUGINABBR__TEXTDOMAIN', 'pvplugin-name' );
 define( 'PVPLUGINABBR__TEXTDOMAINPATH', '/languages/' );
 define( 'PVPLUGINABBR__FILE', __FILE__ );
-define( 'PVPLUGINABBR__DIR', dirname( __FILE__ ) );
+define( 'PVPLUGINABBR__DIR', dirname( PVPLUGINABBR__FILE ) );
 define( 'PVPLUGINABBR__VERSION', '0.0.1' );
 define( 'PVPLUGINABBR_REQUIRED_WP_VERSION', '4.0' );
 define( 'PVPLUGINABBR_REQUIRED_PHP_VERSION', '5.3' );
