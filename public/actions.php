@@ -1,7 +1,12 @@
 <?php
+
+if ( ! defined( 'WPINC' ) ) {
+    exit;
+}
+
 if ( !class_exists('pluginabbr_public_actions') ) {
-    public class pluginabbr_public_actions {
-        public function load_styles( ) {
+    static public class pluginabbr_public_actions {
+        static public function load_styles( ) {
             wp_enqueue_style(
                 'pvpluginabbr_public',
                 plugins_url( 'assets/css/styles.css', __FILE__ ),
@@ -11,7 +16,7 @@ if ( !class_exists('pluginabbr_public_actions') ) {
             );
         }
 
-        public function load_scripts( ) {
+        static public function load_scripts( ) {
             wp_enqueue_script(
                 'pvpluginabbr_public',
                 plugins_url( 'assets/js/main.js', __FILE__ ),

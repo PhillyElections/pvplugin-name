@@ -4,17 +4,16 @@ if ( ! defined( 'WPINC' ) ) {
     exit;
 }
 
-
 if ( !class_exists( 'pvpluginabbr_core_actions' ) ) {
     // define hooks
-    public class pvpluginabbr_core_actions {
+    static public class pvpluginabbr_core_actions {
 
         // standard hooks
         /**
          * activation hook for pvplugin-name
          * @return NULL
          */
-        public function pvpluginabbr_activate() {
+        static public function pvpluginabbr_activate() {
 
             // test for installed tables
             if ( 0 ) {
@@ -29,7 +28,7 @@ if ( !class_exists( 'pvpluginabbr_core_actions' ) ) {
          * deactivation hook for pvplugin-name
          * @return NULL
          */
-        public function pvpluginabbr_deactivate() {
+        static public function pvpluginabbr_deactivate() {
 
             // clear the permalinks after the post type has been registered
             flush_rewrite_rules();
@@ -39,7 +38,7 @@ if ( !class_exists( 'pvpluginabbr_core_actions' ) ) {
          * uninstall hook for pvplugin-name
          * @return NULL
          */
-        public function pvpluginabbr_uninstall() {
+        static public function pvpluginabbr_uninstall() {
 
             // run uninstall sql
         }
