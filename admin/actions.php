@@ -4,7 +4,7 @@ if ( !class_exists('pluginabbr_admin_actions') ) {
         public function load_styles( ) {
             wp_enqueue_style(
                 'pvpluginabbr_admin',
-                plugins_url( 'css/styles.css', __FILE__ ),
+                plugins_url( 'assets/css/styles.css', __FILE__ ),
                 array(),
                 PVPLUGINABBR_VERSION,
                 'screen'
@@ -14,7 +14,7 @@ if ( !class_exists('pluginabbr_admin_actions') ) {
         public function load_scripts( ) {
             wp_enqueue_script(
                 'pvpluginabbr_admin',
-                plugins_url( 'js/main.js', __FILE__ ),
+                plugins_url( 'assets/js/main.js', __FILE__ ),
                 array( 'query' ),
                 PVPLUGINABBR_VERSION
             );
