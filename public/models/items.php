@@ -1,6 +1,6 @@
 <?php
 /**
- * check for PVPLUGINABBR environment
+ * Check for PVPLUGINABBR environment
  */
 if ( ! defined( 'PVPLUGINABBR_INC' ) ) {
 	exit;

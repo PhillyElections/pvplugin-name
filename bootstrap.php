@@ -27,14 +27,14 @@
  **/
 
 /**
- * check for WP environment
+ * Check for WP environment
  */
 if ( ! defined( 'WPINC' ) ) {
 	exit;
 }
 
 define( 'PVPLUGINABBR_NAME', 'PV Plugin Name' );
-define( 'PVPLUGINABBR_INC', TRUE );
+define( 'PVPLUGINABBR_INC', true );
 define( 'PVPLUGINABBR_TEXTDOMAIN', 'pvplugin-name' );
 define( 'PVPLUGINABBR_TEXTDOMAINPATH', '/languages/' );
 define( 'PVPLUGINABBR_FILE', __FILE__ );
