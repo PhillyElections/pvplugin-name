@@ -1,6 +1,8 @@
 <?php
-
-if ( ! defined( 'WPINC' ) ) {
-    exit;
+/**
+ * check for PVPLUGINABBR environment
+ */
+if ( ! defined( 'PVPLUGINABBR_INC' ) ) {
+	exit;
 }
     

@@ -1,50 +1,52 @@
 <?php
-
-if ( ! defined( 'WPINC' ) ) {
-    exit;
+/**
+ * check for PVPLUGINABBR environment
+ */
+if ( ! defined( 'PVPLUGINABBR_INC' ) ) {
+	exit;
 }
 
-if ( !class_exists( 'pvpluginabbr_core_actions' ) ) {
-    // define hooks
-    static public class pvpluginabbr_core_actions {
+if ( ! class_exists( 'pvpluginabbr_core_actions' ) ) {
 
-        // standard hooks
-        /**
-         * activation hook for pvplugin-name
-         * @return NULL
-         */
-        static public function pvpluginabbr_activate() {
+	/**
+	 * Define core actions using static methods.
+	 */
+	class pvpluginabbr_core_actions {
 
-            // test for installed tables
-            if ( 0 ) {
-                // run install sql
-            } 
+		// standard hooks
+		/**
+		 * activation hook for pvplugin-name.
+		 */
+		public static function pvpluginabbr_activate() {
 
-            // clear the permalinks after the post type has been registered
-            flush_rewrite_rules();
-        }
+			// test for installed tables
+			if ( 0 ) {
+				// run install sql
+			}
 
-        /**
-         * deactivation hook for pvplugin-name
-         * @return NULL
-         */
-        static public function pvpluginabbr_deactivate() {
+			// clear the permalinks after the post type has been registered
+			flush_rewrite_rules();
+		}
 
-            // clear the permalinks after the post type has been registered
-            flush_rewrite_rules();
-        }
+		/**
+		 * deactivation hook for pvplugin-name.
+		 */
+		public static function pvpluginabbr_deactivate() {
 
-        /**
-         * uninstall hook for pvplugin-name
-         * @return NULL
-         */
-        static public function pvpluginabbr_uninstall() {
+			// clear the permalinks after the post type has been registered
+			flush_rewrite_rules();
+		}
 
-            // run uninstall sql
-        }
+		/**
+		 * uninstall hook for pvplugin-name.
+		 */
+		public static function pvpluginabbr_uninstall() {
 
-        // additional hooks
-    }
+			// run uninstall sql
+		}
+
+		// additional hooks
+	}
 }
 
 // register standard hooks
