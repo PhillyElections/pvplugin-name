@@ -38,7 +38,7 @@ define( 'PVPLUGINABBR_INC', TRUE );
 define( 'PVPLUGINABBR_TEXTDOMAIN', 'pvplugin-name' );
 define( 'PVPLUGINABBR_TEXTDOMAINPATH', '/languages/' );
 define( 'PVPLUGINABBR_FILE', __FILE__ );
-define( 'PVPLUGINABBR_DIR', dirname( PVPLUGINABBR_FILE ) );
+define( 'PVPLUGINABBR_DIR', dirname( __FILE__ ) );
 define( 'PVPLUGINABBR_VERSION', '0.0.1' );
 define( 'PVPLUGINABBR_REQUIRED_WP_VERSION', '4.0' );
 define( 'PVPLUGINABBR_REQUIRED_PHP_VERSION', '5.3' );
