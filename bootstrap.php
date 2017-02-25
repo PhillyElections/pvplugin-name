@@ -33,6 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
 	exit;
 }
 
+define( 'DS', DIRECTORY_SEPARATOR );
 define( 'PVPLUGINABBR_NAME', 'PV Plugin Name' );
 define( 'PVPLUGINABBR_INC', true );
 define( 'PVPLUGINABBR_TEXTDOMAIN', 'pvplugin-name' );
