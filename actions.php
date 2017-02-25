@@ -25,7 +25,7 @@ if ( ! class_exists( 'pvpluginabbr_core_actions' ) ) {
 			}
 
 			// clear the permalinks after the post type has been registered
-			flush_rewrite_rules();
+			//flush_rewrite_rules();
 		}
 
 		/**
@@ -34,7 +34,7 @@ if ( ! class_exists( 'pvpluginabbr_core_actions' ) ) {
 		public static function pvpluginabbr_deactivate() {
 
 			// clear the permalinks after the post type has been registered
-			flush_rewrite_rules();
+			//flush_rewrite_rules();
 		}
 
 		/**
