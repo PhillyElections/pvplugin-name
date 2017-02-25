@@ -50,8 +50,8 @@ if ( ! class_exists( 'pvpluginabbr_core_actions' ) ) {
 }
 
 // register standard hooks
-register_activation_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_activate() );
-register_deactivation_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_deactivate() );
-register_uninstall_hook( PVPLUGINABBR__FILE, pvpluginabbr_actions::pvpluginabbr_uninstall() );
+register_activation_hook( PVPLUGINABBR__FILE, pvpluginabbr_core_actions::pvpluginabbr_activate() );
+register_deactivation_hook( PVPLUGINABBR__FILE, pvpluginabbr_core_actions::pvpluginabbr_deactivate() );
+register_uninstall_hook( PVPLUGINABBR__FILE, pvpluginabbr_core_actions::pvpluginabbr_uninstall() );
 
 // register additional hooks
